@@ -1,0 +1,11 @@
+{
+  "name": "wixTDD",
+  "version": "0.0.1",
+  "scripts": {
+    "tdd": "mocha ${TEST_FILES:-src/**/*.test.js} --watch --recursive"
+  },
+  "dependencies": {
+    "mocha": "^5.2.0",
+    "sinon": "^6.1.5"
+  }
+}
