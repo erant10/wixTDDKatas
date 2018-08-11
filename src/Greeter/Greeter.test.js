@@ -5,7 +5,7 @@ const sinon = require('sinon');
 let timeOfDay = 'other'; // default time to other
 
 let logger = {
-    log: console.log
+    log: function() {}
 };
 
 describe('Greeter', () => {
