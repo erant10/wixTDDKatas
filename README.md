@@ -17,3 +17,4 @@ npm install
   
 #### Content
 - **Greeter** class which contains the *greet* function. *greet* receives a name as input and outputs **Hello *name***.
+- **StringCalculator** contains the *add* function which receives a a delimited string, and returns the sum of the numbers in the string.
