@@ -1,5 +1,6 @@
 function generate(number) {
-    return [];
+    if (number === 1) return [];
+    return [number];
 }
 
 module.exports = {
