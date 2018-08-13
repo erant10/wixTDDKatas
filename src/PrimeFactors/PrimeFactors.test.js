@@ -29,5 +29,10 @@ describe('PrimeFactors', () => {
             done();
         });
 
+        it('5. constant → variable', (done) => {
+            assert.deepEqual(PrimeFactors.generate(4620),[2,2,3,5,7,11]);
+            done();
+        });
+
     });
 });
