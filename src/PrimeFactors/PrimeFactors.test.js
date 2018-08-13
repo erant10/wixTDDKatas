@@ -24,5 +24,10 @@ describe('PrimeFactors', () => {
             done();
         });
 
+        it('4. unconditional → if', (done) => {
+            assert.deepEqual(PrimeFactors.generate(9),[3,3]);
+            done();
+        });
+
     });
 });
