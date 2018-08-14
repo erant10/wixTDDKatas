@@ -32,7 +32,7 @@ describe('BowlingGameTest', () => {
     it('roll a strike', done => {
         rollStrike();
         let firstRoll = getRandomInt(0,9),
-            secondRoll = getRandomInt(0,9);
+            secondRoll = 9-firstRoll;
         g.roll(firstRoll);
         g.roll(secondRoll);
         rollN(16,0);
@@ -40,24 +40,40 @@ describe('BowlingGameTest', () => {
         done();
     });
 
+    it('roll a perfect game', done => {
+        rollPerfectGame();
+        assert.equal(g.score(), 300);
+        done();
+    });
+
 
 });
 
 function rollSpare() {
-    let firstRoll = getRandomInt(0,9)
+    let firstRoll = getRandomInt(0,9);
     g.roll(firstRoll);
     g.roll(10-firstRoll);
 }
 
 function rollStrike() {
     g.roll(10);
-    g.roll(0);
+    if (g.round < 20) {
+        g.roll(0);
+    }
 }
 
 function rollN(n,pins) {
     for (let i=0; i<n; i++) {
         g.roll(pins);
     }
+}
+
+function rollPerfectGame() {
+    for (let frame = 0; frame < 10; frame++) {
+        rollStrike()
+    }
+    // roll a strike in the bonus round
+    rollStrike();
 }
 
 function getRandomInt(min,max) {

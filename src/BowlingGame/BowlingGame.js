@@ -25,6 +25,12 @@ class Game {
                     frameScore += this._getSpareBonus(frame);
                 }
             }
+            if (frame === 9) {
+                let frameScore = this.rolls[this.rolls.length - 1]; // the bonus round
+                if (frameScore === 10) {
+                    gameScore += frameScore;
+                }
+            }
             gameScore += frameScore;
         }
         return gameScore;
@@ -35,7 +41,16 @@ class Game {
     }
 
     _getStrikeBonus(frame) {
-        return this.rolls[2*frame+2] + this.rolls[2*frame+3];
+        let bonus = this.rolls[2*frame+2];
+        if (bonus === 10 && 2*frame+2 <= 18) {
+            // rolled another strike
+            bonus += this.rolls[2*frame+4]
+
+        }
+        if (2*frame+2 < 20) {
+            bonus += this.rolls[2*frame+3];
+        }
+        return bonus;
     }
 
     _getSpareBonus(frame) {
